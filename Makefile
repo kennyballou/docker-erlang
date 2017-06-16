@@ -18,7 +18,7 @@ DOCKERFILES:= \
 all: ${DOCKERFILES}
 
 $(DOCKERFILES): template/Dockerfile 18/options 19/options
-	bash template/generate.sh $(shell echo $@ | cut -d '/' -f1)/options $^ > $@
+	bash template/generate.sh $(shell echo $@ | cut -d '/' -f1)/options $< > $@
 
 .PHONY: clean
 clean:
