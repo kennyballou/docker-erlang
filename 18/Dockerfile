@@ -4,7 +4,7 @@ MAINTAINER kballou@devnulllabs.io
 
 ENV LANG="en_US.UTF-8"
 ENV OTP_VERSION="18.3.4.4"
-ENV REBAR_VERSION="2.6.2"
+ENV REBAR_VERSION="2.6.4"
 ENV REBAR3_VERSION="3.4.1"
 
 RUN set -xe \
@@ -29,7 +29,7 @@ RUN set -xe \
     && rm -rf /usr/src/otp-src \
     && mkdir -p /usr/src/rebar-src \
     && curl -fSL "https://github.com/rebar/rebar/archive/${REBAR_VERSION##*@}.tar.gz" -o rebar-src.tar.gz \
-    && echo "ed2a49300f2f8ae7c95284e53e95dd85430952d2843ce224a17db2b312964400  rebar-src.tar.gz" | sha256sum -c - \
+    && echo "577246bafa2eb2b2c3f1d0c157408650446884555bf87901508ce71d5cc0bd07  rebar-src.tar.gz" | sha256sum -c - \
     && tar -zxf rebar-src.tar.gz -C /usr/src/rebar-src --strip-components=1 \
     && rm rebar-src.tar.gz \
     && cd /usr/src/rebar-src \
