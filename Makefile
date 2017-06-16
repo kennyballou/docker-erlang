@@ -1,3 +1,4 @@
+IMAGE_NAME:=kennyballou/docker-erlang
 DOCKERFILES_SRC:=template/Dockerfile
 
 DOCKERFILES:= \
@@ -19,6 +20,13 @@ all: ${DOCKERFILES}
 
 $(DOCKERFILES): template/Dockerfile 18/options 19/options
 	bash template/generate.sh $(shell echo $@ | cut -d '/' -f1)/options $< > $@
+
+define build_image =
+$(1):
+	docker build -t $(IMAGE_NAME):$$(@D) $$(@D)
+endef
+
+#$(foreach dockerfile,$(DOCKERFILES),$(eval $(call build_image,$(dockerfile))))
 
 .PHONY: clean
 clean:
