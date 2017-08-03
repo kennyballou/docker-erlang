@@ -3,7 +3,7 @@ FROM centos:7
 MAINTAINER kballou@devnulllabs.io
 
 ENV LANG="en_US.UTF-8"
-ENV OTP_VERSION="20.0"
+ENV OTP_VERSION="20.0.1"
 ENV REBAR_VERSION="2.6.4"
 ENV REBAR3_VERSION="3.4.1"
 
@@ -14,8 +14,8 @@ RUN set -xe \
         unixODBC \
         unixODBC-devel \
         openssl-devel \
-    && curl -fSL "https://github.com/erlang/otp/archive/OTP-20.0.tar.gz" -o otp-src.tar.gz \
-    && echo "548815fe08f5b661d38334ffa480e9e0614db5c505da7cb0dc260e729697f2ab  otp-src.tar.gz" | sha256sum -c - \
+    && curl -fSL "https://github.com/erlang/otp/archive/OTP-20.0.1.tar.gz" -o otp-src.tar.gz \
+    && echo "8b121b38102acd43f89afd786055461741522c3a13ee17ef1a795c0dbf6aa281  otp-src.tar.gz" | sha256sum -c - \
     && mkdir -p /usr/src/otp-src \
     && tar -zxf otp-src.tar.gz -C /usr/src/otp-src --strip-components=1 \
     && rm otp-src.tar.gz \
