@@ -5,7 +5,7 @@ MAINTAINER kballou@devnulllabs.io
 ENV LANG="en_US.UTF-8"
 ENV OTP_VERSION="19.3.3"
 ENV REBAR_VERSION="2.6.4"
-ENV REBAR3_VERSION="3.4.3"
+ENV REBAR3_VERSION="3.4.4"
 
 RUN set -xe \
     && yum -y groups install "Development Tools" \
@@ -39,7 +39,7 @@ RUN set -xe \
     && rm -rf /usr/src/rebar-src \
     && mkdir -p /usr/src/rebar3-src \
     && curl -fSL "https://github.com/erlang/rebar3/archive/${REBAR3_VERSION##*@}.tar.gz" -o rebar3-src.tar.gz \
-    && echo "6194b738fb8a4a1bef6619220ca8acf4ed826d2febfe39c62ebd0ed6fb7d05a8  rebar3-src.tar.gz" | sha256sum -c - \
+    && echo "0f7c860489dc4e4fcdc706a04690f791755870ff0e0582525b8ee9a78e911443  rebar3-src.tar.gz" | sha256sum -c - \
     && tar -zxf rebar3-src.tar.gz -C /usr/src/rebar3-src --strip-components=1 \
     && rm rebar3-src.tar.gz \
     && cd /usr/src/rebar3-src \
